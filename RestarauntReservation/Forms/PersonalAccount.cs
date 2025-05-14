@@ -13,45 +13,37 @@ using System.Windows.Forms;
 
 namespace RestarauntReservation.Forms
 {
-    public partial class StaffMenu : Form
+    public partial class PersonalAccount : Form
     {
-        public StaffMenu()
+        private Client _client;
+        public PersonalAccount(Client client)
         {
+            _client = client;
             InitializeComponent();
-        }
-
-        private void guna2ControlBox2_Click(object sender, EventArgs e)
-        {
-
+            LoadReservations();
         }
 
         private void LoadReservations()
         {
-            flowLayoutPanel1.Controls.Clear();
-
             using var context = new RestarauntContext();
 
             var reservations = context.Reservations
                 .Include(r => r.Table)
-                .Include(r => r.Client)
+                .Where(r => r.ClientId == _client.Id)
                 .ToList();
+
+            flowLayoutPanel1.Controls.Clear();
 
             foreach (var res in reservations)
             {
-                var control = new StaffUserControl(res);
-                control.Margin = new Padding(10);
+                var control = new PersonalUserControl(res);
                 flowLayoutPanel1.Controls.Add(control);
             }
         }
 
-        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        private void PersonalAccount_Load(object sender, EventArgs e)
         {
-
-        }
-
-        private void StaffMenu_Load(object sender, EventArgs e)
-        {
-            LoadReservations();
+           
         }
     }
 }

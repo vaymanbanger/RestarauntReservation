@@ -1,16 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic;
 using RestarauntReservation.Models;
-using System;
-using System.Collections.Concurrent;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace RestarauntReservation.Forms
 {
@@ -153,6 +143,17 @@ namespace RestarauntReservation.Forms
         private void TableShapes7_Click(object sender, EventArgs e)
         {
             NewTable(7);
+        }
+
+        private void guna2CirclePictureBox1_Click(object sender, EventArgs e)
+        {
+            PersonalAccount personalAccount = new PersonalAccount(_client);
+            personalAccount.ShowDialog();
+        }
+
+        private void guna2Panel1_Paint(object sender, PaintEventArgs e)
+        {
+
         }
     }
 }

@@ -200,8 +200,9 @@
             guna2Panel1.Location = new Point(0, 0);
             guna2Panel1.Name = "guna2Panel1";
             guna2Panel1.ShadowDecoration.CustomizableEdges = customizableEdges9;
-            guna2Panel1.Size = new Size(1134, 73);
+            guna2Panel1.Size = new Size(1134, 67);
             guna2Panel1.TabIndex = 3;
+            guna2Panel1.Paint += guna2Panel1_Paint;
             // 
             // label6
             // 
@@ -216,6 +217,7 @@
             // 
             // guna2CirclePictureBox1
             // 
+            guna2CirclePictureBox1.Cursor = Cursors.Hand;
             guna2CirclePictureBox1.Image = Properties.Resources.MainIcon;
             guna2CirclePictureBox1.ImageRotate = 0F;
             guna2CirclePictureBox1.Location = new Point(12, 3);
@@ -226,6 +228,7 @@
             guna2CirclePictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             guna2CirclePictureBox1.TabIndex = 4;
             guna2CirclePictureBox1.TabStop = false;
+            guna2CirclePictureBox1.Click += guna2CirclePictureBox1_Click;
             // 
             // guna2TabControl1
             // 

@@ -60,7 +60,6 @@
             guna2Panel2 = new Guna.UI2.WinForms.Guna2Panel();
             RegistryButton = new Guna.UI2.WinForms.Guna2Button();
             LoginButton = new Guna.UI2.WinForms.Guna2Button();
-            label1 = new Label();
             Passguna2TextBox = new Guna.UI2.WinForms.Guna2TextBox();
             Numguna2TextBox = new Guna.UI2.WinForms.Guna2TextBox();
             Userguna2TextBox = new Guna.UI2.WinForms.Guna2TextBox();
@@ -150,7 +149,6 @@
             guna2Panel2.BackColor = Color.FromArgb(98, 60, 22);
             guna2Panel2.Controls.Add(RegistryButton);
             guna2Panel2.Controls.Add(LoginButton);
-            guna2Panel2.Controls.Add(label1);
             guna2Panel2.Controls.Add(Passguna2TextBox);
             guna2Panel2.Controls.Add(Numguna2TextBox);
             guna2Panel2.Controls.Add(Userguna2TextBox);
@@ -204,18 +202,6 @@
             LoginButton.TabIndex = 5;
             LoginButton.Text = "Войти";
             LoginButton.Click += LoginButton_Click;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Cursor = Cursors.Hand;
-            label1.Font = new Font("Century Gothic", 9F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 204);
-            label1.ForeColor = SystemColors.Control;
-            label1.Location = new Point(183, 320);
-            label1.Name = "label1";
-            label1.Size = new Size(115, 18);
-            label1.TabIndex = 4;
-            label1.Text = "Забыл пароль";
             // 
             // Passguna2TextBox
             // 
@@ -307,7 +293,6 @@
             ((System.ComponentModel.ISupportInitialize)guna2PictureBox1).EndInit();
             guna2Panel1.ResumeLayout(false);
             guna2Panel2.ResumeLayout(false);
-            guna2Panel2.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -319,7 +304,6 @@
         private Guna.UI2.WinForms.Guna2CirclePictureBox guna2CirclePictureBox1;
         private Guna.UI2.WinForms.Guna2Panel guna2Panel1;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
-        private Label label1;
         private Guna.UI2.WinForms.Guna2TextBox Passguna2TextBox;
         private Guna.UI2.WinForms.Guna2TextBox Numguna2TextBox;
         private Guna.UI2.WinForms.Guna2TextBox Userguna2TextBox;
