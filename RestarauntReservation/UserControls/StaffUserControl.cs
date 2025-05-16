@@ -19,7 +19,7 @@ namespace RestarauntReservation.UserControls
             labelTable.Text = $"Стол #{reservation.Table?.Number}";
             labelTime.Text = reservation.Booking_Time.ToString();
             labelCount.Text = $"{reservation.Number_Of_Guests.ToString()} гостей";
-            labelName.Text = $"Имя  {reservation.Client.ToString()}";
+            labelName.Text = $"Имя  {reservation.Client.Name}";
             labelNumber.Text = reservation.Client.Phone_Number.ToString();
         }
 
