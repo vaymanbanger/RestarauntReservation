@@ -1,3 +1,4 @@
+using RestarauntReservation.Forms;
 using RestarauntReservation.Models;
 
 namespace RestarauntReservation
@@ -14,7 +15,7 @@ namespace RestarauntReservation
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             using var context = new RestarauntContext();
-            Application.Run(new Authorization());
+            Application.Run(new StaffMenu());
         }
     }
 }

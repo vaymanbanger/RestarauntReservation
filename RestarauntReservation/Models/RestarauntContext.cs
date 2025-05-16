@@ -22,7 +22,7 @@ namespace RestarauntReservation.Models
         }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlite("Data Source=C:\\Users\\Viktor\\OneDrive\\Рабочий стол\\Games\\coursework\\RestarauntReservation\\RestarauntReservation\\RestarauntDb.db");
+            optionsBuilder.UseSqlite("Data Source=C:\\Users\\587-22\\source\\repos\\RestarauntReservation\\RestarauntReservation\\RestarauntDb.db");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

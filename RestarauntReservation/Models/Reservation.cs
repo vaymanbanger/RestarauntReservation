@@ -14,7 +14,7 @@
         public Table Table { get; set; }
 
         public DateTime Booking_Date { get; set; }
-        public DateTime Booking_Time { get; set; }
+        public TimeOnly Booking_Time { get; set; }
         public int Number_Of_Guests { get; set; }
     }
 }

@@ -35,8 +35,7 @@ namespace RestarauntReservation.Forms
         private void ReserveButton_Click(object sender, EventArgs e)
         {
             var datePart = DateTime.Parse(_date).Date;
-            var timePart = TimeSpan.Parse(_time);
-            var fullDateTime = datePart.Add(timePart);
+            var timePart = TimeOnly.Parse(_time);
 
             using RestarauntContext dbcontext = new RestarauntContext();
             var newReservation = new Reservation
@@ -44,7 +43,7 @@ namespace RestarauntReservation.Forms
                 Description = DescriptionTextBox1.Text,
                 Number_Of_Guests = Convert.ToInt32(GuestsNumericUpDown1.Value),
                 Booking_Date = datePart,
-                Booking_Time = fullDateTime,
+                Booking_Time = timePart,
                 TableId = _TableId,
                 ClientId = _client.Id,
             };

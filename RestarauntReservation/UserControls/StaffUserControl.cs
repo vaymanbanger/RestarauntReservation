@@ -16,10 +16,10 @@ namespace RestarauntReservation.UserControls
 
         private void FillUserControl()
         {
-            labelTable.Text = $"Стол #{reservation.Table?.Number}";
+            labelTable.Text = $"Стол #{reservation.TableId}";
             labelTime.Text = reservation.Booking_Time.ToString();
             labelCount.Text = $"{reservation.Number_Of_Guests.ToString()} гостей";
-            labelName.Text = $"Имя  {reservation.Client.ToString()}";
+            labelName.Text = $"Имя  {reservation.Client.Name}";
             labelNumber.Text = reservation.Client.Phone_Number.ToString();
         }
 
