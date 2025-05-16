@@ -27,8 +27,7 @@ namespace RestarauntReservation.Forms
         {
             DescriptionTextBox1.Text = _reservation.Description;
             GuestsNumericUpDown1.Value = _reservation.Number_Of_Guests;
-            DateTextBox.Text = _reservation.Booking_Date.ToString();
-            TimeTextBox.Text = _reservation.Booking_Time.ToString();
+            ComboBoxTime.SelectedItem = _reservation.Booking_Time;
         }
 
         private void ReserveButton_Click(object sender, EventArgs e)
@@ -41,11 +40,9 @@ namespace RestarauntReservation.Forms
                 res.Description = DescriptionTextBox1.Text;
                 res.Number_Of_Guests = (int)GuestsNumericUpDown1.Value;
 
-                if (DateTime.TryParse(DateTextBox.Text, out var date) &&
-                    TimeSpan.TryParse(TimeTextBox.Text, out var time))
+                if ( TimeOnly.TryParse(ComboBoxTime.Text, out var time))
                 {
-                    res.Booking_Date = date.Date;
-                    res.Booking_Time = date.Date.Add(time);
+                    res.Booking_Time = time;
                 }
                 else
                 {

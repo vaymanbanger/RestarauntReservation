@@ -29,17 +29,17 @@ namespace RestarauntReservation.Forms
             using var context = new RestarauntContext();
 
             var selectedDate = DateTimePicker1.Value.Date;
-            var selectedTime = TimeSpan.Parse(ComboBoxTime.SelectedItem.ToString());
+            var selectedTime = TimeOnly.Parse(ComboBoxTime.SelectedItem.ToString());
 
             var reservations = await context.Reservations
                 .Include(r => r.Table)
                 .Include(r => r.Client)
                 .Where(r =>
                     r.Booking_Date.Date == selectedDate &&
-                    r.Booking_Time.TimeOfDay == selectedTime)
+                    r.Booking_Time == selectedTime)
                 .ToListAsync();
 
-            UpdateTableColors(reservations, selectedDate.Add(selectedTime));
+            UpdateTableColors(reservations);
 
         }
 
@@ -62,8 +62,7 @@ namespace RestarauntReservation.Forms
         /// обновление цвета стола
         /// </summary>
         /// <param name="reservations"></param>
-        /// <param name="selectedDateTime"></param>
-        private void UpdateTableColors(List<Reservation> reservations, DateTime selectedDateTime)
+        private void UpdateTableColors(List<Reservation> reservations)
         {
             using var context = new RestarauntContext();
             var tables = context.Tables.ToList();
