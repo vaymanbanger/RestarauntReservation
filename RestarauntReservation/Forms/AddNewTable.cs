@@ -50,6 +50,7 @@ namespace RestarauntReservation.Forms
 
             dbcontext.Reservations.Add(newReservation);
             dbcontext.SaveChanges();
+            MessageBox.Show("Стол успешно забронирован!", "Успех", MessageBoxButtons.OK, MessageBoxIcon.Information);
             _mainMenu.UpdateData();
             this.Hide();
         }

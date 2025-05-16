@@ -48,8 +48,10 @@ namespace RestarauntReservation.UserControls
             var editTable = new EditTable(reservation); // передаём текущую бронь
             if (editTable.ShowDialog() == DialogResult.OK)
             {
-                // Обновим интерфейс после редактирования
                 FillUserControl();
+                // Обновим интерфейс после редактирования
+                var staffForm = this.FindForm() as StaffMenu;
+                staffForm?.ReloadReservations();
             }
         }
     }

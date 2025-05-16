@@ -33,6 +33,7 @@
             guna2CircleButtonCancel = new Guna.UI2.WinForms.Guna2CircleButton();
             labelCount = new Label();
             labelTime = new Label();
+            labelDate = new Label();
             SuspendLayout();
             // 
             // labelTable
@@ -87,11 +88,23 @@
             labelTime.TabIndex = 12;
             labelTime.Text = "Time";
             // 
+            // labelDate
+            // 
+            labelDate.AutoSize = true;
+            labelDate.Font = new Font("Segoe UI", 10.2F);
+            labelDate.ForeColor = SystemColors.Control;
+            labelDate.Location = new Point(172, 83);
+            labelDate.Name = "labelDate";
+            labelDate.Size = new Size(46, 23);
+            labelDate.TabIndex = 13;
+            labelDate.Text = "Date";
+            // 
             // PersonalUserControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.Sienna;
+            Controls.Add(labelDate);
             Controls.Add(labelTime);
             Controls.Add(labelCount);
             Controls.Add(labelTable);
@@ -109,5 +122,6 @@
         private Guna.UI2.WinForms.Guna2CircleButton guna2CircleButtonCancel;
         private Label labelCount;
         private Label labelTime;
+        private Label labelDate;
     }
 }

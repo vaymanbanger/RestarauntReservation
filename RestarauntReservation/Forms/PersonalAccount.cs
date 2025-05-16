@@ -29,7 +29,8 @@ namespace RestarauntReservation.Forms
 
             var reservations = context.Reservations
                 .Include(r => r.Table)
-                .Where(r => r.ClientId == _client.Id)
+                .Where(r => r.ClientId == _client.Id &&
+                r.Booking_Date >= DateTime.Today)
                 .ToList();
 
             flowLayoutPanel1.Controls.Clear();

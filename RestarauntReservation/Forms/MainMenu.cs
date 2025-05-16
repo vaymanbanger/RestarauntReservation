@@ -115,17 +115,34 @@ namespace RestarauntReservation.Forms
         /// <param name="num"></param>
         private void NewTable(int num)
         {
+            var selectedDate = DateTimePicker1.Value.Date;
+            var selectedTime = TimeOnly.Parse(ComboBoxTime.SelectedItem.ToString());
+
+            using var context = new RestarauntContext();
+
+            var isOccupied = context.Reservations.Any(r =>
+                r.Booking_Date.Date == selectedDate &&
+                r.Booking_Time == selectedTime &&
+                r.Table.Number == num);
+
+            if (isOccupied)
+            {
+                MessageBox.Show("Этот стол уже забронирован на выбранное время.", "Занято", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            var TableId = context.Tables.FirstOrDefault(x => x.Number == num)?.Id;
+
+            if (TableId == null)
+            {
+                MessageBox.Show("Ошибка. Повторите еще раз.");
+                return;
+            }
+
             var date = DateTimePicker1.Value.ToString();
             var time = ComboBoxTime.SelectedItem.ToString();
 
-            using var context = new RestarauntContext();
-            var TableId = context.Tables.FirstOrDefault(x => x.Number == num)?.Id;
-            if (TableId == null)
-            {
-                MessageBox.Show("Ошибка.Повторите еще раз");
-            }
-
-            AddNewTable addNewTable = new AddNewTable(_client, this, date, time, TableId!.Value);
+            AddNewTable addNewTable = new AddNewTable(_client, this, date, time, TableId.Value);
             addNewTable.Show();
         }
 

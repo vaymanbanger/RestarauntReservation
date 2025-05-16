@@ -53,5 +53,10 @@ namespace RestarauntReservation.Forms
         {
             LoadReservations();
         }
+
+        public void ReloadReservations()
+        {
+            LoadReservations();
+        }
     }
 }

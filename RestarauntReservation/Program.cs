@@ -15,7 +15,7 @@ namespace RestarauntReservation
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             using var context = new RestarauntContext();
-            Application.Run(new StaffMenu());
+            Application.Run(new Authorization());
         }
     }
 }

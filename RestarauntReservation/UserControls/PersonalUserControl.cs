@@ -1,4 +1,5 @@
-﻿using RestarauntReservation.Models;
+﻿using RestarauntReservation.Forms;
+using RestarauntReservation.Models;
 
 namespace RestarauntReservation.UserControls
 {
@@ -17,6 +18,8 @@ namespace RestarauntReservation.UserControls
             labelTable.Text = "Стол #" + reservation.Table?.Number.ToString();
             labelTime.Text = reservation.Booking_Time.ToString();
             labelCount.Text = reservation.Number_Of_Guests.ToString() + " гостей";
+            labelDate.Text = reservation.Booking_Date.ToShortDateString();
+
         }
 
         private void guna2CircleButtonCancel_Click(object sender, EventArgs e)
@@ -35,6 +38,15 @@ namespace RestarauntReservation.UserControls
                     MessageBox.Show("Бронирование удалено.");
 
                     this.Parent.Controls.Remove(this);
+
+                    foreach (Form form in Application.OpenForms)
+                    {
+                        if (form is MainMenu mainMenu)
+                        {
+                            mainMenu.UpdateData();
+                            break;
+                        }
+                    }
                 }
             }
         }
